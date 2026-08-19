@@ -211,6 +211,55 @@
       "targetRole": "teacher",
       "reason": "Needs attendance clarification.",
       "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-AC9EE3D1",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "User requested escalation to teacher",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-08DB7B0C",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "Needs attendance clarification.",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-A516B545",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "Needs attendance clarification.",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-8892B0D3",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "Needs attendance clarification.",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-65F9FD00",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "User requested escalation to teacher",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-A86162C4",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "User requested escalation to teacher",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-DACAD3A4",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "User requested escalation to teacher",
+      "status": "submitted"
     }
   ]
 }
