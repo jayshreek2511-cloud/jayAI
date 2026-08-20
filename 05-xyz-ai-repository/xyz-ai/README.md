@@ -1,76 +1,173 @@
-# XYZ AI
+# 🤖 XYZ AI — Human-Like School Assistant
 
-XYZ AI is a role-aware school assistant built for the **Bharat Academix AI & ML Competition 2026**. It gives students, parents, teachers, and school leadership one conversational interface for school information, attendance workflows, notifications, and escalation, while tailoring what each role may access.
+> Built for the **Bharat Academix AI & Machine Learning Competition 2026**
 
-## Architecture
+XYZ AI is a role-aware conversational school assistant that chats, listens, speaks, and animates a talking avatar. It enforces server-side permissions so each user can access only the information and actions appropriate to their role.
 
-Each request follows a controlled pipeline: **Role Resolver → Intent/Entity Extraction (Gemini) → Context Manager → Permission Check → Mock API → Persona Response Generator → Chat/Voice/Avatar Output**. The backend resolves the signed-in identity from a JWT, retains relevant conversation context, validates the requested action before accessing data, then returns a role-appropriate response to the React interface. Browser speech and the animated avatar present the response as voice and visual output.
+---
 
-## Run locally
+## ✨ Features
 
-Prerequisites: Node.js 20+ and a Gemini API key.
+| Category | What it does |
+| --- | --- |
+| 💬 **Conversational Chat** | Natural-language chat backed by Gemini for intent extraction and persona-styled replies. |
+| 🌐 **Multilingual** | Supports 11 languages: English, Hindi, Tamil, Telugu, Marathi, Bengali, Gujarati, Punjabi, Kannada, Malayalam, and Urdu. |
+| 🎙️ **Voice Input** | Browser speech-to-text using the Web Speech API, with the locale selected from the language dropdown. |
+| 🔊 **Voice Output** | Replies are spoken via `speechSynthesis`, matched to the selected language when a suitable browser voice is available. |
+| 🧑‍🎨 **Talking Avatar** | Animated avatar with mouth movement while XYZ AI speaks. |
+| 🔐 **Role-Based Permissions** | Each action is checked server-side against the caller's JWT-verified role. |
+| 🧠 **Conversation Memory** | Retains recent turns per user so follow-up questions can use context. |
+| 📣 **Escalation Flow** | Teacher-contact requests are confirmed before notification and support student→teacher, parent→teacher, principal→teacher, and teacher→student flows. |
+| 🔔 **Notifications** | Role-specific alerts plus AI-triggered notification actions. |
+| 🏠 **Shared Home Feed** | School events and celebrations in a social-feed-style home page. |
+| 🛡️ **Security Hardened** | Guards against prompt injection, system-prompt extraction, and API-key extraction attempts. |
+| 📱 **Responsive Dashboard** | Dashboard UI for laptop and mobile layouts. |
 
-1. Create `backend/.env` from `backend/.env.example` and set:
+---
 
-   ```env
-   JWT_SECRET=use-a-long-random-local-secret
-   GEMINI_API_KEY=your-gemini-api-key
-   GEMINI_API_KEY_TEST=optional-separate-development-key
-   USE_TEST_KEY=false
-   ```
+## 🏗️ Architecture
 
-   Set `USE_TEST_KEY=true` to use `GEMINI_API_KEY_TEST` during development and preserve the demo key's quota. Do not commit real keys.
+```text
+User message
+    │
+    ▼
+🔑 Role Resolver              — role comes only from the signed JWT
+    │
+    ▼
+🧩 Intent + Entity Extraction — Gemini classifies into fixed intents
+    │
+    ▼
+🧠 Context Manager            — recent conversation turns are supplied
+    │
+    ▼
+🚦 Permission Check           — role-to-intent policy is enforced
+    │
+    ▼
+📡 Mock API Layer             — attendance, escalation, notifications
+    │
+    ▼
+🗣️ Persona Response Generator — role-appropriate reply in the selected language
+    │
+    ▼
+Chat 💬 / Voice 🔊 / Avatar 🧑‍🎨
+```
 
-2. Start the backend in one terminal:
+**Personas by role:**
 
-   ```powershell
-   cd backend
-   npm install
-   npm run dev
-   ```
+- 🎓 Student — Friendly, supportive Academic Assistant
+- 👨‍👩‍👧 Parent — Caring, patient Parent Support Assistant
+- 👩‍🏫 Teacher — Professional Teaching Assistant
+- 🏫 Principal — Professional Management Assistant
 
-   The API listens on `http://localhost:3001`.
+---
 
-3. Start the frontend in another terminal:
+## 📁 Repository Structure
 
-   ```powershell
-   cd frontend
-   npm install
-   npm run dev
-   ```
+```text
+School-ERP-Ecosystem/
+├── 01-student-repository/student-portal/
+├── 02-parent-repository/parent-portal/
+├── 03-management-repository/management-portal/
+├── 04-staff-repository/staff-portal/
+└── 05-xyz-ai-repository/xyz-ai/
+    ├── backend/     ← Express API, authentication, permissions, Gemini integration
+    ├── frontend/    ← Vite + React dashboard UI
+    ├── voice/       ← reserved voice assets/wrappers
+    ├── avatar/      ← reserved talking-avatar assets
+    └── README.md
+```
 
-   Open `http://localhost:5173`.
+The functional submission is in `05-xyz-ai-repository/xyz-ai/`; the other portals are intentionally lightweight entry points.
 
-## Demo users
+---
 
-The demo login has no password; choose the matching role and enter one of these seeded IDs.
+## 🚀 Getting Started
 
-| User ID | Role | Demo identity |
-| --- | --- | --- |
-| `student-001` | `student` | Aarav Sharma |
-| `parent-001` | `parent` | Neha Sharma |
-| `teacher-001` | `teacher` | Priya Menon |
-| `principal-001` | `principal` | Dr. Ritu Verma |
+### 1. Backend
 
-## Implemented features
+```powershell
+cd 05-xyz-ai-repository/xyz-ai/backend
+npm install
+```
 
-- Multilingual chat across 11 supported languages.
-- Browser voice input and text-to-speech voice replies.
-- Animated talking avatar synchronized with voice output.
-- Role-based permissions and JWT-backed identity enforcement.
-- Escalation workflow for issues that need another school role.
-- Notifications, including chat-triggered `notify_parent` actions with confirmation.
-- Role-differentiated dashboards for student, parent, teacher, and principal experiences.
+Create `backend/.env` from `backend/.env.example`:
 
-## Security notes
+```env
+JWT_SECRET=your-long-random-secret
+GEMINI_API_KEY=your-real-gemini-key
 
-- Prompt-injection attempts are treated as untrusted input and are blocked from changing instructions or identity.
-- Requests to reveal system prompts, hidden instructions, credentials, or configuration are refused.
-- Gemini keys are read only from environment variables; the optional test key helps protect the demo key's quota.
-- The active role is derived only from the signed JWT—never from chat text or client-supplied conversational claims.
+# Optional development key that protects the main key's free-tier quota
+GEMINI_API_KEY_TEST=
+USE_TEST_KEY=false
+```
 
-## Known limitations
+Then start the API:
 
-- Gemini free-tier daily quota limits can affect live AI responses; use the optional test key during development.
-- Teacher and principal deep-view capabilities are intentionally deferred beyond the current demo scope.
-- Browser speech recognition support varies; Chrome is recommended for voice input.
+```powershell
+npm run dev
+```
+
+The backend runs at `http://localhost:3001`.
+
+### 2. Frontend
+
+Open a second terminal:
+
+```powershell
+cd 05-xyz-ai-repository/xyz-ai/frontend
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173`.
+
+> 🎙️ Voice features work best in Chrome, Edge, or Brave. Firefox and Safari have limited Web Speech API support.
+
+---
+
+## 👥 Demo Test Users
+
+The demo login does not require a password; enter a seeded ID and select its matching role.
+
+| Name | User ID | Role | Notes |
+| --- | --- | --- | --- |
+| Aarav Sharma | `student-001` | Student | Class 6A |
+| Neha Sharma | `parent-001` | Parent | Linked to Aarav |
+| Priya Menon | `teacher-001` | Teacher | Class 6A |
+| Dr. Ritu Verma | `principal-001` | Principal | School-wide access |
+
+---
+
+## 🎙️ Voice Input Notes
+
+Voice input uses Chrome's Web Speech API (`SpeechRecognition`/`webkitSpeechRecognition`) with `continuous = false`, `interimResults = true`, and a locale derived from the language dropdown. Chrome's recognition service requires network access even though it is started locally.
+
+The recognizer is cleaned up whenever the Chat view unmounts and uses a single active-instance guard, preventing a stale recognition session from surviving navigation and conflicting with a new one. If recognition fails, the browser console logs the complete native `SpeechRecognitionErrorEvent` for diagnosis.
+
+For a voice test, allow microphone access for `localhost:5173`, navigate to **Chat**, click the microphone, speak a short phrase, and confirm that the recognized text appears in the message field.
+
+---
+
+## 🛡️ Security Notes
+
+- **Role claims** — the role is read only from the verified JWT; claims in chat text are ignored.
+- **Prompt injection** — instructions such as “ignore your instructions” cannot change permissions because authorization never comes from the message.
+- **System-prompt extraction** — requests for hidden instructions are refused at both prompt and application layers.
+- **API-key extraction** — Gemini keys are read server-side from environment variables and never exposed to the frontend.
+- **Unauthorized actions** — mutating actions re-check role and ownership server-side before execution.
+
+---
+
+## ⚠️ Known Limitations
+
+- Gemini free-tier limits can affect live AI replies. Use `GEMINI_API_KEY_TEST` with `USE_TEST_KEY=true` during development when appropriate.
+- Web Speech API support, network availability, and recognition accuracy vary by browser and locale.
+- Teacher and principal deep-dive reports are beyond the current demo scope.
+- The four portal applications are intentionally minimal; functional features live in XYZ AI.
+
+---
+
+## 💛 Credits
+
+Built for the Bharat Academix AI & Machine Learning Competition 2026.
+**Powered by XYZ AI**
