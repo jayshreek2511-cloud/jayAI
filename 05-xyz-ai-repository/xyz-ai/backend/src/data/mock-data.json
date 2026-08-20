@@ -1,0 +1,467 @@
+{
+  "students": [
+    {
+      "id": "student-001",
+      "name": "Aarav Sharma",
+      "class": "6A",
+      "attendancePercentage": 94
+    },
+    {
+      "id": "student-002",
+      "name": "Diya Patel",
+      "class": "6A",
+      "attendancePercentage": 91
+    },
+    {
+      "id": "student-003",
+      "name": "Kabir Singh",
+      "class": "6B",
+      "attendancePercentage": 88
+    },
+    {
+      "id": "student-004",
+      "name": "Ananya Rao",
+      "class": "6B",
+      "attendancePercentage": 96
+    },
+    {
+      "id": "student-005",
+      "name": "Vihaan Gupta",
+      "class": "7A",
+      "attendancePercentage": 90
+    },
+    {
+      "id": "student-006",
+      "name": "Isha Nair",
+      "class": "7A",
+      "attendancePercentage": 93
+    },
+    {
+      "id": "student-007",
+      "name": "Arjun Mehta",
+      "class": "7B",
+      "attendancePercentage": 87
+    },
+    {
+      "id": "student-008",
+      "name": "Meera Iyer",
+      "class": "7B",
+      "attendancePercentage": 95
+    },
+    {
+      "id": "student-009",
+      "name": "Rohan Das",
+      "class": "8A",
+      "attendancePercentage": 89
+    },
+    {
+      "id": "student-010",
+      "name": "Saanvi Kapoor",
+      "class": "8A",
+      "attendancePercentage": 97
+    },
+    {
+      "id": "student-011",
+      "name": "Riya Sharma",
+      "class": "7A",
+      "attendancePercentage": 82
+    }
+  ],
+  "parents": [
+    {
+      "id": "parent-001",
+      "name": "Neha Sharma",
+      "studentIds": [
+        "student-001",
+        "student-011"
+      ]
+    },
+    {
+      "id": "parent-002",
+      "name": "Raj Patel",
+      "studentId": "student-002"
+    },
+    {
+      "id": "parent-003",
+      "name": "Kavita Rao",
+      "studentId": "student-004"
+    },
+    {
+      "id": "parent-004",
+      "name": "Amit Mehta",
+      "studentId": "student-007"
+    }
+  ],
+  "teachers": [
+    {
+      "id": "teacher-001",
+      "name": "Priya Menon",
+      "class": "6A",
+      "studentIds": [
+        "student-001",
+        "student-002"
+      ]
+    },
+    {
+      "id": "teacher-002",
+      "name": "Suresh Kumar",
+      "class": "7A",
+      "studentIds": [
+        "student-005",
+        "student-006"
+      ]
+    },
+    {
+      "id": "teacher-003",
+      "name": "Farah Khan",
+      "class": "8A",
+      "studentIds": [
+        "student-009",
+        "student-010"
+      ]
+    }
+  ],
+  "principals": [
+    {
+      "id": "principal-001",
+      "name": "Dr. Ritu Verma",
+      "access": "school-wide"
+    }
+  ],
+  "attendanceRecords": [
+    {
+      "studentId": "student-001",
+      "date": "2026-08-10",
+      "status": "present"
+    },
+    {
+      "studentId": "student-002",
+      "date": "2026-08-10",
+      "status": "present"
+    },
+    {
+      "studentId": "student-003",
+      "date": "2026-08-10",
+      "status": "absent"
+    },
+    {
+      "studentId": "student-004",
+      "date": "2026-08-10",
+      "status": "present"
+    },
+    {
+      "studentId": "student-005",
+      "date": "2026-08-10",
+      "status": "late"
+    },
+    {
+      "studentId": "student-006",
+      "date": "2026-08-10",
+      "status": "present"
+    },
+    {
+      "studentId": "student-007",
+      "date": "2026-08-10",
+      "status": "absent"
+    },
+    {
+      "studentId": "student-008",
+      "date": "2026-08-10",
+      "status": "present"
+    },
+    {
+      "studentId": "student-009",
+      "date": "2026-08-10",
+      "status": "present"
+    },
+    {
+      "studentId": "student-010",
+      "date": "2026-08-10",
+      "status": "present"
+    },
+    {
+      "studentId": "student-001",
+      "date": "2026-08-17",
+      "status": "present"
+    },
+    {
+      "studentId": "student-011",
+      "date": "2026-08-10",
+      "status": "present"
+    },
+    {
+      "studentId": "student-011",
+      "date": "2026-08-11",
+      "status": "absent"
+    },
+    {
+      "studentId": "student-011",
+      "date": "2026-08-12",
+      "status": "late"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif-student-assignment",
+      "role": "student",
+      "userId": "student-001",
+      "title": "New Assignment",
+      "message": "Math Chapter 5 posted",
+      "timestamp": "2026-08-20T08:30:00.000Z",
+      "read": false
+    },
+    {
+      "id": "notif-student-exams",
+      "role": "student",
+      "userId": null,
+      "title": "Exam Schedule",
+      "message": "Mid-terms start Aug 25",
+      "timestamp": "2026-08-20T07:45:00.000Z",
+      "read": false
+    },
+    {
+      "id": "notif-student-project",
+      "role": "student",
+      "userId": "student-001",
+      "title": "Reminder",
+      "message": "Science project due tomorrow",
+      "timestamp": "2026-08-19T13:00:00.000Z",
+      "read": false
+    },
+    {
+      "id": "notif-teacher-meeting",
+      "role": "teacher",
+      "userId": null,
+      "title": "Staff Meeting",
+      "message": "Scheduled by Principal — Aug 22, 3 PM",
+      "timestamp": "2026-08-20T09:00:00.000Z",
+      "read": true
+    },
+    {
+      "id": "notif-teacher-circular",
+      "role": "teacher",
+      "userId": null,
+      "title": "New Circular",
+      "message": "A new circular is available from Management",
+      "timestamp": "2026-08-19T11:30:00.000Z",
+      "read": true
+    },
+    {
+      "id": "notif-parent-ptm",
+      "role": "parent",
+      "userId": null,
+      "title": "PTM Scheduled",
+      "message": "Parent-teacher meeting scheduled for Aug 24",
+      "timestamp": "2026-08-20T10:00:00.000Z",
+      "read": false
+    },
+    {
+      "id": "notif-parent-attendance",
+      "role": "parent",
+      "userId": "parent-001",
+      "title": "Attendance Alert",
+      "message": "Aarav was absent on Aug 18",
+      "timestamp": "2026-08-19T09:15:00.000Z",
+      "read": false
+    },
+    {
+      "id": "notif-parent-score",
+      "role": "parent",
+      "userId": "parent-001",
+      "title": "Low Score Alert",
+      "message": "Science test score: 62%",
+      "timestamp": "2026-08-18T14:20:00.000Z",
+      "read": false
+    },
+    {
+      "id": "notif-principal-announcement",
+      "role": "principal",
+      "userId": null,
+      "title": "School-wide Announcement",
+      "message": "Independence Day assembly feedback is available for review",
+      "timestamp": "2026-08-20T06:30:00.000Z",
+      "read": false
+    },
+    {
+      "id": "notif-parent-398716d7-a5d2-4ffb-bf22-0c65429bf635",
+      "role": "parent",
+      "userId": "parent-001",
+      "title": "Message from school",
+      "message": "Aarav was absent today.",
+      "timestamp": "2026-08-20T07:00:14.270Z",
+      "read": false,
+      "createdBy": "teacher-001"
+    },
+    {
+      "id": "notif-escalation-78dce21b-fe1c-4ad3-9628-b8b3049d5c0f",
+      "role": "teacher",
+      "userId": "teacher-001",
+      "title": "Conversation request",
+      "message": "Aarav Sharma requested to talk to you.",
+      "timestamp": "2026-08-20T08:23:14.557Z",
+      "read": false,
+      "createdBy": "student-001",
+      "escalationId": "ESC-F42B5E25"
+    },
+    {
+      "id": "notif-escalation-486d18de-342a-4faf-a82b-5ec215144b3c",
+      "role": "student",
+      "userId": "student-001",
+      "title": "Conversation request",
+      "message": "Priya Menon requested to talk to you.",
+      "timestamp": "2026-08-20T08:23:17.017Z",
+      "read": false,
+      "createdBy": "teacher-001",
+      "escalationId": "ESC-D9D952B8"
+    },
+    {
+      "id": "notif-escalation-8851694c-aacb-4c55-99c1-2f1173b1d3b0",
+      "role": "teacher",
+      "userId": "teacher-001",
+      "title": "Conversation request",
+      "message": "Diya Patel requested to talk to you.",
+      "timestamp": "2026-08-20T08:27:15.610Z",
+      "read": false,
+      "createdBy": "student-002",
+      "escalationId": "ESC-91FB4782"
+    }
+  ],
+  "escalations": [
+    {
+      "ticketId": "ESC-F47D654E",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "Needs attendance clarification.",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-25D17708",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "Needs attendance clarification.",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-EBBC504B",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "Needs attendance clarification.",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-D6FA61AB",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "Needs attendance clarification.",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-242C002B",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "Needs attendance clarification.",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-AC9EE3D1",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "User requested escalation to teacher",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-08DB7B0C",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "Needs attendance clarification.",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-A516B545",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "Needs attendance clarification.",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-8892B0D3",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "Needs attendance clarification.",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-65F9FD00",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "User requested escalation to teacher",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-A86162C4",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "User requested escalation to teacher",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-DACAD3A4",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "User requested escalation to teacher",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-449246FA",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "Needs attendance clarification.",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-3A96CC97",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "Needs attendance clarification.",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-9599B1F3",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "Needs attendance clarification.",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-EA972313",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "reason": "User requested escalation to teacher",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-F42B5E25",
+      "userId": "student-001",
+      "targetRole": "teacher",
+      "targetUserId": "teacher-001",
+      "reason": "I want to talk to my teacher",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-D9D952B8",
+      "userId": "teacher-001",
+      "targetRole": "student",
+      "targetUserId": "student-001",
+      "reason": "I want to talk to Aarav Sharma",
+      "status": "submitted"
+    },
+    {
+      "ticketId": "ESC-91FB4782",
+      "userId": "student-002",
+      "targetRole": "teacher",
+      "targetUserId": "teacher-001",
+      "reason": "I want to talk to my teacher",
+      "status": "submitted"
+    }
+  ]
+}
